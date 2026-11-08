@@ -1,0 +1,52 @@
+A1.SELECT
+    c.name,
+    r.room_type,
+    r.room_number,
+    b.check_in,
+    b.check_out
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id = b.customer_id
+JOIN Rooms r
+ON b.room_id = r.room_id;
+
+A2. SELECT
+    room_type,
+    AVG(price) AS average_price
+FROM Rooms
+GROUP BY room_type;
+
+A3. SELECT
+    c.name,
+    COUNT(b.booking_id) AS total_bookings
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id = b.customer_id
+GROUP BY c.customer_id, c.name;
+
+A4. SELECT
+    c.name,
+    SUM(p.amount) AS total_payment
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id = b.customer_id
+JOIN Payments p
+ON b.booking_id = p.booking_id
+GROUP BY c.customer_id, c.name;
+
+A5. SELECT
+    status,
+    COUNT(*) AS total_rooms
+FROM Rooms
+GROUP BY status;
+
+A6. SELECT
+    b.booking_id,
+    c.name,
+    p.amount
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id = b.customer_id
+JOIN Payments p
+ON b.booking_id = p.booking_id
+WHERE p.payment_status = 'Paid';

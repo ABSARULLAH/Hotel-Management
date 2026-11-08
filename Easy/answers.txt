@@ -1,0 +1,22 @@
+A1. SELECT name, phone, email 
+FROM Customers;
+
+A2. SELECT *
+FROM Rooms
+WHERE price > 2000;
+
+A3. SELECT *
+FROM Bookings
+ORDER BY check_in DESC;
+
+A4. SELECT *
+FROM Payments
+WHERE amount > 5000;
+
+A5. SELECT *
+FROM Customers
+WHERE address IN ('Hyderabad', 'Secunderabad');
+
+A6. SELECT room_number, room_type, price
+FROM Rooms
+ORDER BY price DESC;
